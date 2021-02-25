@@ -13,5 +13,8 @@ runs:
   steps:
     - run: echo "Here is where we would trigger a run on backend ${{ inputs.backend }}."
       shell: bash
-    - run: echo "Here are the contents of the backend configuration file ${{ inputs.backend-config }}"
+    - run: |
+        echo "Here are the contents of the backend configuration file:" 
+        echo
+        cat ${{ inputs.backend-config }}
       shell: bash
