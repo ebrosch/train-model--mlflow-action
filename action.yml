@@ -15,7 +15,5 @@ runs:
       shell: bash
     - run: |
         echo "Here are the contents of the backend configuration file:" 
-        echo ${{ inputs.backend-config }}
-        echo $PWD
-        ls
+        cat ${{ inputs.backend-config }}
       shell: bash
