@@ -1,19 +1,17 @@
-name: 'Hello World'
-description: 'Greet someone'
+name: 'Run MLFlow Project'
+description: 'Run an MLFlow project on a specified backend'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  backend:  
+    description: 'Which backend on which to run'
     required: true
-    default: 'World'
-outputs:
-  random-number:
-    description: "Random number"
-    value: ${{ steps.random-number-generator.outputs.random-id }}
+    default: 'local'
+  backend-config:  
+    description: 'Backend configuration file'
+    required: false
 runs:
   using: "composite"
   steps:
-    - run: echo Hello ${{ inputs.who-to-greet }}.
+    - run: echo "Here is where we would trigger a run on backend ${{ inputs.backend }}."
       shell: bash
-    - id: random-number-generator
-      run: echo "::set-output name=random-id::$(echo $RANDOM)"
+    - run: echo "Here are the contents of the backend configuration file ${{ inputs.backend-config }}"
       shell: bash
